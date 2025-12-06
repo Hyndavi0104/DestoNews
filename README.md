@@ -1,63 +1,113 @@
-# DestoNews
+# 📰 DestoNews
+
+🌍 **Live Website:** https://destonews.onrender.com
+
+DestoNews is a modern real-time news web application built using **Django**, allowing users to browse trending headlines from different countries. It includes **user authentication, a clean UI, and smooth navigation**, making it simple and intuitive.
+
+---
+
+## 🚀 Features
+
+- 🔐 User Registration & Login System  
+- 📰 Fetch latest news headlines dynamically  
+- 🌎 Country-based filtering (India, USA, UK, Canada, Australia, UAE)  
+- 📱 Fully responsive UI with Bootstrap  
+- ☁️ Live deployment using Render  
+- 🎨 Stylish Navbar, animations, and clean design  
+
+---
+
+## 🛠️ Tech Stack
+
+| Component | Technology |
+|----------|------------|
+| Frontend | HTML, CSS, Bootstrap |
+| Backend | Django |
+| Database | SQLite |
+| API Used | GNews / Custom configuration |
+| Deployment | Render |
+| Server | Gunicorn |
+
+---
 
 
-A django application that provides a sentiment balanced, location-based non-repetitive dynamic news-feed using NLP techniques on data extracted from Twitter.
 
-### Overview
+## ⚙️ Installation (Local Setup)
 
-The measure of news data an individual can routinely get to nowadays would have been unimaginable a hundred years back. Yet, despite everything we have only 24 hours in a day, and just a single pair of eyes to read, and so the question arises: how to get as much valuable news as possible in a limited time?  
+Run the following commands:
 
-A “news feed service” is designed to effectively deliver the most relevant and valuable news content to individual readers. In order to recognize such a service, the system needs to analyze and evaluate a user’s preferences and all recent news content, which requires processing a huge amount of data. Fortunately, meeting high data processing demands is something natural language processing technology is good at.  Natural language processing technology can assist news media platforms in building highquality and accurate news information to enhance their content value. The technology can also analyze a particular news to help readers to separate repeated news bits from the sea of information.  The idea here is to create a fair, sentiment balanced, non-repetitive, and appropriate news-feed that can provide news for any stated location by utilizing the Twitter API. And  If the topic is not in the language of the user's preference, the translated version is presented along with the original text. 
+#### Clone the project
+git clone <your-repo-link>
+cd desto-news-master
 
-Major modules include UI interface development and Backend development. 
+#### Create virtual environment
+python -m venv venv
+source venv/bin/activate  # For Windows: venv\Scripts\activate
 
-UI is made using HTML, CSS and JavaScript. The sub-modules include Authentication (handled by accounts), templates etc. 
+#### Install dependencies
+pip install -r requirements.txt
 
-Backend module is developed using a python frameowrk known as Django. It further includes sub-modules like Tweepy authentication, Tweets extraction, Tweets Processing, Sentiment Analysis, Translator, etc. 
+#### Run migrations
+python manage.py migrate
 
-The main file for tweet extraction and processing is news/views.py .
+#### Run server
+python manage.py runserver
 
-### SetUp
-
-In order to run this project on your machine, follow the following steps:
-
-+ Install a virtual environment wrapper, if you don't have one.
-
-  ```commandline
-  pip install virtualenvwrapper-win
-  ```
-  (Windows)
-  ```commandline
-  pip install virtualenv
-  ```
-  (Mac)
+---
 
 
-+ Make a virtual environment
-  ```commandline
-  mkvirtualenv destoNews
-  ```
-  (Windows)
-  ```commandline
-  virtualenv destoNews
-  source destoNews/bin/activate
-  ```
-  (Mac)
+## ☁️ Deployment (Render)
+
+###  1️⃣ Push code to GitHub
+
+git init
+git add .
+git commit -m "Initial project"
+git branch -M main
+git remote add origin https://github.com/username/DestoNews.git
+git push -u origin main
+
+###  2️⃣ Add Procfile
+
+web: gunicorn nlpNewsFeed.wsgi:application --bind 0.0.0.0:$PORT
+
+### 3️⃣ Create App on Render
+
+Go to Render.com
+
+Click New → Web Service
+
+Select your GitHub repository
+
+Set environment to Python 3.12+
+
+Click Deploy
+
+Render will automatically detect requirements.txt.
 
 
-+ Install Django
-  ```commandline
-  pip install django
-  ```
-+ You can check the version of django using the following command,
-  ```
-  django-admin --version
-  ```
-+ You can install other api and libraries required to run this project, using the command like the ones listed below.
-  ```
-  pip install tweepy
-  pip install textblob
-  pip install <name_of_the_library>
-  ```
-  
-[Click here](https://youtu.be/VlEOutfMIdU) to watch the video demo of the project which explains the whole code and working demo of the project.
+### ▶️ Static Files Setup (Before Deploy)
+
+#### Run:
+
+python manage.py collectstatic
+
+
+#### When prompted:
+
+Type 'yes' to continue:
+
+
+## 🙌 Credits
+
+Developed by Hyndavi Thota 🎉
+Created to learn, explore, and build a functional Django web application.
+
+## MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction...
+
+
+
