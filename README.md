@@ -30,40 +30,27 @@ DestoNews is a modern real-time news web application built using **Django**, all
 
 ---
 
-## 📁 Project Structure
 
-desto-news-master/
-│
-├── news/ # Main Django app
-├── templates/ # HTML templates
-├── static/ # CSS & assets
-├── manage.py
-├── requirements.txt
-├── Procfile
-└── nlpNewsFeed/ # Project configuration and settings
-
-
----
 
 ## ⚙️ Installation (Local Setup)
 
 Run the following commands:
 
-# Clone the project
+#### Clone the project
 git clone <your-repo-link>
 cd desto-news-master
 
-# Create virtual environment
+#### Create virtual environment
 python -m venv venv
 source venv/bin/activate  # For Windows: venv\Scripts\activate
 
-# Install dependencies
+#### Install dependencies
 pip install -r requirements.txt
 
-# Run migrations
+#### Run migrations
 python manage.py migrate
 
-# Run server
+#### Run server
 python manage.py runserver
 
 ---
