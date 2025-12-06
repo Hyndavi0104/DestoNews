@@ -1,1 +1,2 @@
-web: gunicorn nlpNewsFeed.wsgi
+web: gunicorn desto-news-master.wsgi:application
+

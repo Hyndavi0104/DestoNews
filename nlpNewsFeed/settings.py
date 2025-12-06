@@ -24,7 +24,9 @@ SECRET_KEY = 'm#^kiqsf^%pk)t5m=(%xsl1rtxnb(e*k=9qxbfb_&@pzhgoxlo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['DestoNews.onrender.com']
+
+ALLOWED_HOSTS = ['DestoNews.onrender.com', 'localhost', '127.0.0.1']
+
 
 # Application definition
 
