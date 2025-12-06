@@ -64,7 +64,7 @@ git init
 git add .
 git commit -m "Initial project"
 git branch -M main
-git remote add origin https://github.com/username/DestoNews.git
+git remote add origin https://github.com/Hyndavi0104/DestoNews.git
 git push -u origin main
 
 ###  2️⃣ Add Procfile
