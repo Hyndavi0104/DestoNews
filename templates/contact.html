@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Contact - DestoNews{% endblock %}
+
+{% block content %}
+
+<style>
+    .contact-section {
+        padding: 70px 20px;
+        border-radius: 12px;
+        text-align: center;
+        background-color: #f8f9fa;
+        color: #333;
+        max-width: 700px;
+        margin: 40px auto;
+        box-shadow: 0px 6px 20px rgba(0,0,0,0.05);
+    }
+
+    .contact-section h2 {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+
+    .contact-section p {
+        font-size: 1.1rem;
+        margin: 15px 0;
+        line-height: 1.6;
+    }
+
+    .contact-links a {
+        color: #007bff;
+        font-weight: bold;
+        text-decoration: none;
+        transition: 0.2s ease-in-out;
+    }
+
+    .contact-links a:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+</style>
+
+<div class="contact-section">
+    <h2>Contact Us</h2>
+
+    <p>If you have feedback, feature requests, or want to collaborate — we would love to hear from you!</p>
+
+    <div class="contact-links">
+        <p>Email: <strong>destonews.support@gmail.com</strong></p>
+        <p>GitHub: <strong><a href="#" target="_blank">Coming Soon</a></strong></p>
+    </div>
+</div>
+
+{% endblock %}

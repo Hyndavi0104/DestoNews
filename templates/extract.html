@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Trending News{% endblock %}
+
+{% block content %}
+
+<style>
+    .news-container .card {
+        border-radius: 12px;
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .news-container .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .news-container img {
+        border-radius: 12px 12px 0 0;
+        height: 180px;
+        object-fit: cover;
+    }
+
+    .news-container h5 {
+        font-weight: 600;
+        min-height: 55px;
+    }
+
+    .news-container p {
+        font-size: 0.95rem;
+        height: 60px;
+        overflow: hidden;
+    }
+
+    .news-container small {
+        color: #555;
+    }
+
+    .form-select {
+        max-width: 300px;
+    }
+
+    .fetch-btn {
+        margin-top: 10px;
+    }
+</style>
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-center text-primary">🌍 Top Trending News by Location</h2>
+
+    {% if error %}
+        <div class="alert alert-danger text-center">{{ error }}</div>
+    {% endif %}
+
+    <form method="post" class="mb-4 text-center">
+        {% csrf_token %}
+        <select name="country" class="form-select d-inline-block" required>
+            <option value="in">🇮🇳 India</option>
+            <option value="us">🇺🇸 USA</option>
+            <option value="gb">🇬🇧 UK</option>
+            <option value="ca">🇨🇦 Canada</option>
+            <option value="au">🇦🇺 Australia</option>
+            <option value="ae">🇦🇪 UAE</option>
+        </select>
+        <button type="submit" class="btn btn-primary fetch-btn">Fetch News</button>
+    </form>
+
+    {% if news %}
+        <div class="row news-container">
+            {% for item in news %}
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm">
+                        {% if item.image %}
+                            <img src="{{ item.image }}" class="card-img-top" alt="news image">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5>{{ item.title }}</h5>
+                            <p>{{ item.description|default:"No description available." }}</p>
+                            <small><b>Source:</b> {{ item.source.name }}</small><br>
+                            <small><b>Published:</b> {{ item.publishedAt|slice:":10" }}</small>
+                            <a href="{{ item.url }}" target="_blank" class="btn btn-info btn-sm mt-2 w-100">
+                                Read Full Article →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-muted text-center mt-4">No news fetched yet. Select a country and press "Fetch News".</p>
+    {% endif %}
+</div>
+
+{% endblock %}

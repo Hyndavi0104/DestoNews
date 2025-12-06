@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home | DestoNews{% endblock %}
+
+{% block content %}
+
+<style>
+    .hero-section {
+        background: linear-gradient(135deg, #0d6efd, #6610f2);
+        color: white;
+        padding: 90px 20px;
+        border-radius: 12px;
+    }
+
+    .hero-btn {
+        font-size: 18px;
+        padding: 12px 24px;
+        transition: 0.3s;
+    }
+    .hero-btn:hover {
+        transform: scale(1.08);
+    }
+
+    .features-box {
+        transition: 0.4s ease;
+        cursor: pointer;
+        border-radius: 12px;
+    }
+
+    .features-box:hover {
+        transform: translateY(-8px);
+        box-shadow: 0px 10px 40px rgba(0,0,0,0.15);
+    }
+</style>
+
+
+<!-- Hero Section -->
+<div class="hero-section text-center mt-4">
+    {% if user.is_authenticated %}
+        <h1 class="fw-bold">Welcome, {{ user.username }} 👋</h1>
+        <p class="lead mt-2">You are logged in — ready to explore the latest news.</p>
+
+        <a href="{% url 'extract' %}" class="btn btn-light hero-btn mt-3 me-2">📰 Explore News</a>
+        <a href="{% url 'logout' %}" class="btn btn-danger hero-btn mt-3">Logout</a>
+
+    {% else %}
+        <h1 class="fw-bold">Welcome to DestoNews 👋</h1>
+        <p class="lead mt-2">Your personalized, AI-based real-time news platform.</p>
+
+        <a href="{% url 'login' %}" class="btn btn-warning hero-btn mt-3 me-2">Login</a>
+        <a href="{% url 'register' %}" class="btn btn-success hero-btn mt-3">Create Account</a>
+    {% endif %}
+</div>
+
+
+<!-- Features Section -->
+<div class="container text-center mt-5">
+    <h3 class="fw-bold">Why DestoNews?</h3>
+    <p class="text-muted">Stay informed with fast, clean, reliable breaking news.</p>
+
+    <div class="row mt-4">
+
+        <div class="col-md-4">
+            <div class="p-4 border features-box">
+                <h4>⚡ Fast Updates</h4>
+                <p class="text-muted">Get the latest news instantly from trusted sources.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-4 border features-box">
+                <h4>🎯 Personalized</h4>
+                <p class="text-muted">View news based on topics and interest areas.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="p-4 border features-box">
+                <h4>🔐 Secure Access</h4>
+                <p class="text-muted">Your account and preferences stay protected.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

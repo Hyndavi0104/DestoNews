@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}About - DestoNews{% endblock %}
+
+{% block content %}
+<style>
+    .about-container {
+        max-width: 900px;
+        margin: auto;
+        margin-top: 50px;
+        text-align: center;
+        padding: 20px;
+        animation: fadeIn 0.8s ease-in-out;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 1.2rem;
+        color: #555;
+        line-height: 1.6;
+        margin-bottom: 20px;
+    }
+
+    .highlight-box {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 25px;
+        width: 85%;
+        margin: 30px auto;
+        border: 1px solid #ddd;
+        box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+        transition: 0.3s ease-in-out;
+    }
+
+    .highlight-box:hover {
+        transform: translateY(-4px);
+        box-shadow: 0px 6px 14px rgba(0,0,0,0.12);
+    }
+
+    .about-image img {
+        width: 80%;
+        margin-top: 30px;
+        border-radius: 12px;
+        border: 1px solid #ccc;
+        transition: 0.3s;
+    }
+
+    .about-image img:hover {
+        transform: scale(1.02);
+    }
+
+    .feature-list {
+        text-align: left;
+        width: 70%;
+        margin: auto;
+        margin-top: 20px;
+        list-style: none;
+        font-size: 1.1rem;
+        color: #333;
+    }
+
+    .feature-list li {
+        padding: 8px 0;
+    }
+
+    .feature-list li::before {
+        content: "✔";
+        color: #007bff;
+        font-weight: bold;
+        margin-right: 10px;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+
+<div class="about-container">
+    
+    <h2>About <span style="color:#007bff; font-weight:700;">DestoNews</span></h2>
+
+    <p>
+        DestoNews is a modern and intelligent news platform designed to deliver the latest headlines
+        from around the world based on your selected location.
+    </p>
+    
+    <p>
+        Built using <strong>Django</strong> and the <strong>GNews API</strong>, the platform allows users
+        to quickly browse trending news categories, save time, and stay informed effortlessly.
+    </p>
+
+    <div class="highlight-box">
+        <h4 style="color:#007bff; font-weight:600;">Why DestoNews?</h4>
+        <ul class="feature-list">
+            <li>Fast and reliable news fetching</li>
+            <li>Location-based trending headlines</li>
+            <li>Simple, clean, and user-friendly interface</li>
+            <li>Powered by Django authentication</li>
+        </ul>
+    </div>
+
+    
+</div>
+
+{% endblock %}
